@@ -1,0 +1,9 @@
+# Configuración del clúster de nodos CuentaCompania
+# Formato: nodo_id ip puerto limite_inicial
+# Cada línea representa un nodo del clúster
+
+1 127.0.0.1 9001 100000.0
+2 127.0.0.1 9002 150000.0
+3 127.0.0.1 9003 200000.0
+4 127.0.0.1 9004 175000.0
+5 127.0.0.1 9005 225000.0

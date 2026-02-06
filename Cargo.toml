@@ -1,0 +1,22 @@
+[workspace]
+resolver = "2"
+members = [
+    "admin_compania",
+    "common",
+    "cuenta_compania",
+    "estacion",
+    "gps",
+    "network",
+    "vehiculo",
+]
+
+[workspace.dependencies]
+actix = "0.13"
+actix-rt = "2.10"
+tokio = { version = "1.40", features = ["full"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+thiserror = "1.0"
+log = "0.4"
+env_logger = "0.11"
+rand = "0.8"

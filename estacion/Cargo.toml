@@ -1,0 +1,20 @@
+[package]
+name = "estacion"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "estacion"
+path = "src/main.rs"
+
+[dependencies]
+common = { path = "../common" }
+network = { path = "../network" }
+actix.workspace = true
+actix-rt.workspace = true
+tokio.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+log.workspace = true
+env_logger.workspace = true
+rand.workspace = true
