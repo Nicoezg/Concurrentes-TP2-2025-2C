@@ -11,6 +11,28 @@
 
 ---
 
+## Resumen para LinkedIn
+
+> 🚀 **Proyecto: Sistema Distribuido de Estaciones de Servicio** — Trabajo Práctico de Programación Concurrente · FIUBA 2025
+>
+> Desarrollamos en Rust un sistema distribuido que simula la red de operaciones de una cadena de estaciones de servicio, aplicando múltiples patrones y algoritmos de concurrencia distribuida vistos en la materia.
+>
+> **¿Qué hace el sistema?**
+> Vehículos solicitan al GPS las estaciones más cercanas, eligen una y piden la carga de combustible. La estación gestiona sus surtidores y coordina el cobro con un clúster distribuido de nodos de cuenta. Un administrador de compañía puede consultar saldos, definir límites de consumo y obtener reportes mensuales.
+>
+> **Principales desafíos técnicos resueltos:**
+> - 🗳️ **Elección de líder con Algoritmo Bully**: ante la caída del nodo líder del clúster, los nodos restantes detectan el fallo (por timeout), inician una elección y el nodo con mayor ID asume el liderazgo de forma automática.
+> - 🔒 **Exclusión mutua distribuida centralizada**: el líder actúa como coordinador del acceso exclusivo a los recursos compartidos del clúster, manteniendo los nodos réplica siempre sincronizados.
+> - 📦 **Patrón Store and Forward**: ante una desconexión temporal del clúster, el administrador de red de cada estación almacena las transacciones en una cola persistente y las reenvía automáticamente al recuperar la conexión, garantizando que ninguna carga quede sin registrar.
+> - 🔁 **Mecanismo de backup**: el líder replica su estado en otro nodo elegido aleatoriamente. Ante su caída, el nuevo líder consolida la información del backup con la del resto de los nodos para no perder datos.
+>
+> **Stack tecnológico:**
+> `Rust` · `Actix` (modelo de actores) · `Tokio` (async/await) · `TCP` con protocolo de aplicación propio (header + JSON payload) · `Serde`
+>
+> **Arquitectura:** múltiples procesos independientes (`Vehiculo`, `GPS`, `EstacionDeServicio`, `AdministradorDeCompania`, clúster de `CuentaCompania`) que se comunican mediante actores especializados en red (Acceptor + Communication Handler).
+
+---
+
 # Diseño
 
 ## Finalidad General
